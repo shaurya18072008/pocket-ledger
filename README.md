@@ -1,4 +1,4 @@
-# Pocket Ledger — v1
+# Pocket Ledger — v2
 
 A multi-account personal expense tracker with a calm landing page, password-protected ledgers, a one-click demo, and the original Pocket Ledger dashboard. This project is licensed under the MIT License; see [`LICENSE`](LICENSE).
 
@@ -33,7 +33,7 @@ The two Netlify variables are site-wide infrastructure settings, **not per-user 
 - The signed session is an `HttpOnly`, `SameSite=Lax` cookie, marked `Secure` on HTTPS. Sessions expire after seven days; logging out clears the cookie. For local sandbox previews only, sign-in also supplies a matching seven-day token so the same account dashboard survives refreshes when embedded browsers block cookies; production remains cookie-only.
 - All expense reads, summaries, edits, deletes, imports, and CSV exports are scoped to the signed-in account in the backend. Production serves the dashboard only for a valid session; locally, the dashboard shell itself contains no private data and its API remains authenticated.
 - The demo is a static illustration. Its example values are fictional, read-only, and never saved. It is separate from user accounts.
-- This v1 does not include password reset or account recovery because accounts do not collect an email address.
+- This version does not include password reset or account recovery because accounts do not collect an email address.
 
 ## Tests
 

@@ -1,6 +1,6 @@
 {
   "name": "pocket-ledger",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "description": "A private, multi-account expense tracker for Netlify.",
   "main": "server.js",
@@ -13,7 +13,6 @@
     "@neondatabase/serverless": "^1.2.0",
     "bcryptjs": "^3.0.3",
     "better-sqlite3": "^11.8.1",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.3"
+    "express": "^4.21.2"
   }
 }
