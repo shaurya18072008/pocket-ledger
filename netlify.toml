@@ -1,0 +1,31 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["private/dashboard.html"]
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/demo"
+  to = "/demo.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/.netlify/functions/dashboard"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/dashboard"
+  [headers.values]
+    Cache-Control = "private, no-store, max-age=0"
+    X-Content-Type-Options = "nosniff"

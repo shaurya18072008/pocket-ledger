@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d38">
+  <title>Pocket Ledger — a clearer month</title>
+  <link rel="stylesheet" href="/styles.css?v=20261028-headerimport">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Pocket Ledger home">
+        <span class="brand-mark"><svg viewBox="0 0 34 34" aria-hidden="true"><path d="M6 9.5A3.5 3.5 0 0 1 9.5 6H28v22H9.5A3.5 3.5 0 0 1 6 24.5z"/><path d="M6 11h16a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H6"/><circle cx="21" cy="17" r="1.4"/></svg></span>
+        <span class="brand-name">pocket<span>ledger</span></span>
+      </a>
+      <div class="side-caption">YOUR MONEY</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#overview" data-nav="overview"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="4" rx="1.5"/><rect x="13.5" y="9.5" width="7" height="11" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span>Overview</a>
+        <a class="nav-item" href="#activity" data-nav="activity"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5z"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span>Transactions <span class="nav-count" id="transaction-count">—</span></a>
+        <a class="nav-item" href="#spending" data-nav="spending"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 2 5-6"/></svg></span>Spending</a>
+      </nav>
+      <div class="side-caption categories-caption">CATEGORIES</div>
+      <div class="side-categories" id="side-categories"></div>
+      <div class="sidebar-bottom">
+        <div class="side-note"><span class="note-symbol">✳</span><p>A little more clarity,<br>one day at a time.</p></div>
+        <div class="profile"><div class="avatar" id="profile-initial">A</div><div class="profile-identity"><strong id="profile-name">My ledger</strong><small id="profile-type">Personal account</small></div></div>
+      </div>
+    </aside>
+
+    <main class="main-area" id="overview">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Open navigation"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="breadcrumb"><span>My ledger</span><span class="crumb-slash">/</span><strong>Overview</strong></div>
+        <div class="top-actions">
+          <button class="button button-outline import-expenses" id="import-expenses" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 14v5h14v-5"/></svg> Import CSV/JSON</button><input id="expense-import-file" type="file" accept=".csv,.json,text/csv,application/json" hidden>
+          <button class="icon-button" id="export-button" title="Export expenses as CSV" aria-label="Export CSV"><svg viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v4h14v-4"/></svg></button>
+          <div class="top-date" id="today-label"></div>
+          <div class="account-menu-wrap">
+            <button class="avatar avatar-small account-menu-button" id="account-menu-button" type="button" aria-label="Account menu for My ledger" aria-haspopup="true" aria-expanded="false">A</button>
+            <div class="account-menu" id="account-menu" role="menu" hidden><button id="logout-button" type="button" role="menuitem">Log out <span aria-hidden="true">↗</span></button></div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section class="welcome-row">
+          <div><p class="welcome-date" id="welcome-date">WEDNESDAY, 28 OCTOBER</p><h1>Your money,<br class="mobile-break"> in the <em>clear.</em></h1><p class="welcome-copy">A calm little corner to see where the month went.</p></div>
+          <button class="button button-primary add-expense" id="add-expense"><span class="plus">+</span> Add expense</button>
+        </section>
+
+        <section class="overview-grid" aria-label="Monthly overview">
+          <article class="spend-card">
+            <div class="spend-head"><div><span class="section-label light-label">THIS MONTH</span><div class="month-switcher"><button class="month-arrow" id="prev-month" aria-label="Previous month">‹</button><h2 id="month-heading">October 2026</h2><button class="month-arrow" id="next-month" aria-label="Next month">›</button></div></div><button class="period-pill" id="month-today">Monthly view <span>⌄</span></button></div>
+            <div class="spend-bottom"><div class="spend-total"><span class="currency">₹</span><span id="monthly-total">—</span></div><div class="spend-meta"><span class="change-indicator" id="change-indicator">●</span><span id="change-copy">Compared with last month</span></div></div>
+            <div class="mini-chart" id="mini-chart" aria-label="Daily spending this month"></div>
+            <div class="chart-foot"><span>1 <span id="chart-month-start">Oct</span></span><span>Daily spending</span><span id="chart-day-end">28 Oct</span></div>
+            <span class="card-orbit orbit-one"></span><span class="card-orbit orbit-two"></span>
+          </article>
+          <article class="snapshot-card">
+            <div class="snapshot-title"><span class="section-label">AT A GLANCE</span><span class="sparkle">✳</span></div>
+            <div class="snapshot-item"><div class="snapshot-icon receipt-icon"><svg viewBox="0 0 24 24"><path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></div><div><span class="snapshot-label">Entries this month</span><strong id="entry-total">—</strong></div></div>
+            <div class="snapshot-rule"></div>
+            <div class="snapshot-item"><div class="snapshot-icon average-icon"><svg viewBox="0 0 24 24"><path d="M4 18.5 9 13l3 2 7-9"/><path d="M14 6h5v5"/></svg></div><div><span class="snapshot-label">Average per day</span><strong id="daily-average">—</strong></div></div>
+            <div class="snapshot-footer"><span class="little-dot"></span><span id="snapshot-note">Your month at a glance</span></div>
+          </article>
+        </section>
+
+        <section class="lower-grid" id="spending">
+          <article class="category-card panel">
+            <div class="panel-heading"><div><span class="section-label">THE BREAKDOWN</span><h2>Where it went</h2></div><button class="subtle-link" id="clear-category" hidden>Clear filter <span>×</span></button></div>
+            <div class="category-total-line"><span id="category-subtitle">Spending by category</span><strong id="category-total">₹—</strong></div>
+            <div class="category-bars" id="category-bars"></div>
+            <div class="category-legend" id="category-legend"></div>
+          </article>
+          <article class="note-card">
+            <div class="note-top"><span class="section-label">A SMALL OBSERVATION</span><span class="note-star">✳</span></div>
+            <p id="observation">The small things add up. A quick look is often all it takes.</p>
+            <div class="note-bottom"><span class="note-dash"></span><span>From your spending this month</span></div>
+            <svg class="note-line" viewBox="0 0 200 45" preserveAspectRatio="none" aria-hidden="true"><path d="M0 38 C24 34 28 13 54 20 S84 37 108 22 S143 10 160 19 S184 32 200 5"/></svg>
+          </article>
+        </section>
+
+        <section class="activity-section" id="activity">
+          <div class="activity-head"><div><span class="section-label">YOUR RECORD</span><h2>Recent transactions</h2></div><div class="activity-tools"><label class="search-box"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg><input type="search" id="search-input" placeholder="Find an expense" aria-label="Search expenses"></label><select id="category-filter" class="category-select" aria-label="Filter by category"><option value="">All categories</option></select></div></div>
+          <div class="transactions-panel">
+            <div class="table-head"><span>Expense</span><span>Category</span><span>Date</span><span class="align-right">Amount</span><span></span></div>
+            <div id="transaction-list" class="transaction-list"></div>
+            <div id="empty-state" class="empty-state" hidden><span class="empty-icon">↗</span><strong>Nothing on the ledger yet.</strong><p>Add your first expense and it will find its place here.</p><button class="button button-outline" id="empty-add">Add an expense</button></div>
+            <div class="list-footer"><span id="showing-count">—</span><button id="view-all" class="view-all">View all transactions <span>↗</span></button></div>
+          </div>
+        </section>
+        <footer class="page-footer"><span><span class="footer-mark">✳</span> Pocket Ledger</span><span>Made for a clearer month.</span><a href="/api/health" target="_blank" rel="noreferrer">API status <span class="status-dot"></span></a></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <section class="expense-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-head"><div><span class="section-label">MAKE A NOTE OF IT</span><h2 id="modal-title">Add an expense</h2></div><button class="close-modal" id="close-modal" aria-label="Close dialog">×</button></div>
+      <form id="expense-form">
+        <label class="form-label">What was it for?<input name="description" id="description" maxlength="100" placeholder="e.g. Lunch at the café" required autocomplete="off"></label>
+        <div class="form-row"><label class="form-label">Amount<input name="amount" type="number" min="0.01" max="10000000" step="0.01" placeholder="0.00" required></label><label class="form-label">Date<input name="spent_on" type="date" required></label></div>
+        <label class="form-label">Category<select name="category" id="form-category" required></select></label>
+        <label class="form-label">A note <span class="optional">optional</span><input name="note" maxlength="240" placeholder="Anything worth remembering?"></label>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <div class="modal-actions"><button type="button" class="button button-quiet" id="cancel-modal">Cancel</button><button type="submit" class="button button-primary" id="save-expense">Save expense</button></div>
+      </form>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js?v=20261028-persistent-session" defer></script>
+</body>
+</html>
